@@ -12,6 +12,7 @@ def start():
 	
 def logic():
 	# write all the code that invloves logic here
+	global x, y
 	x = pygame.mouse.get_pos()[0]
 	y = pygame.mouse.get_pos()[1]
 	
