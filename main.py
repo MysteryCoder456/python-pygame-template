@@ -34,7 +34,7 @@ def main():
 	game.start()
 
 	while game.running:
-		game.clock.tick(self.FPS)
+		game.clock.tick(game.FPS)
 
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
