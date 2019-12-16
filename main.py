@@ -1,49 +1,47 @@
-from win import *
 import pygame
+pygame.init()
 
 
-def start():
-  	# initialize all your variables here
-  	global x, y, radius
-  	x = 0
-  	y = 0
-  	radius = 20
-	
-	
-def logic():
-	# write all the code that invloves logic here
-	global x, y
-	x = pygame.mouse.get_pos()[0]
-	y = pygame.mouse.get_pos()[1]
-	
-	
-def render():
-	# write all your code for render in this function between "w.fill(background)" and "pygame.display.update()"
-	
-	# (255, 255, 255) stands for white in RGB values
-	pygame.draw.ellipse(w, (255, 255, 255), (x, y, radius * 2, radius * 2))
-	
-	
-# !!! - DO NOT MODIFY THE BELOW CODE IN ANYWAY - !!!
+class PygameTemplate:
+	def __init__(self, width, height, title):
+		self.width = width
+		self.height = height
+		self.win = pygame.display.set_mode((width, height))
+		pygame.display.set_caption(title)
+
+		self.clock = pygame.time.Clock()
+		self.running = True
+		self.FPS = 60
+		self.background = (0, 0, 0)
+
+
+
+	def start(self):
+		pass
+
+	def logic(self):
+		pass
+
+	def render(self, window):
+		self.win.fill(self.background)
+
+		pygame.display.update()
+
 
 
 def main():
-	global running
-	
-	start()
-	
-	while running:
-		# clock.tick() takes parameter than specifies the fps that you game should run at
-		clock.tick(60)
-		
+	game = PygameTemplate(1024, 720, "PygameTemplate")
+	game.start()
+
+	while game.running:
+		game.clock.tick(self.FPS)
+
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
-				running = False
-				
-		logic()
-		w.fill(background)
-		render()
-		pygame.display.update()
+				game.running = False
+
+		game.logic()
+		game.render(game.win)
 		
 		
 if __name__ == "__main__":
