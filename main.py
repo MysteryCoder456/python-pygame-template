@@ -14,8 +14,6 @@ class PygameTemplate:
 		self.FPS = 60
 		self.background = (0, 0, 0)
 
-
-
 	def start(self):
 		pass
 
@@ -26,9 +24,8 @@ class PygameTemplate:
 		self.win.fill(self.background)
 
 		pygame.display.update()
-
-
-
+		
+		
 def main():
 	game = PygameTemplate(1024, 720, "PygameTemplate")
 	game.start()
