@@ -2,7 +2,7 @@ import pygame
 pygame.init()
 
 
-class PygameTemplate:
+class Game:
 	def __init__(self, width, height, title):
 		self.width = width
 		self.height = height
@@ -24,24 +24,3 @@ class PygameTemplate:
 		self.win.fill(self.background)
 
 		pygame.display.update()
-		
-		
-def main():
-	game = PygameTemplate(1024, 720, "PygameTemplate")
-	game.start()
-
-	while game.running:
-		game.clock.tick(game.FPS)
-
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				game.running = False
-
-		game.logic()
-		game.render(game.win)
-		
-		
-if __name__ == "__main__":
-	main()
-	pygame.quit()
-	quit()
